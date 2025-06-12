@@ -9,7 +9,7 @@ function studentsToDictionary(dataJson) { // This function converts student data
     dataJson.forEach(estudiante => {
         if (!dic[estudiante.curso]) {
             dic[estudiante.curso] = 1;
-        }else {
+        } else {
             dic[estudiante.curso] += 1;
         }
     });
@@ -42,7 +42,7 @@ async function studentsGraph() { // This function fetches student data and creat
             }
         }
     });
-    
+
 }
 
 async function communicateGraph() { // This function fetches communication data and creates a bar chart
@@ -109,10 +109,10 @@ async function asistanceHistoryGraph() { // This function fetches assistance his
         } else {
             asistHistoryDic['Error en nombre'] += asistencia.asistencia;
         }
-    } 
+    }
     );
     console.log(data.data);
-    
+
     const ctx = document.getElementById('history-graph').getContext('2d');
     new Chart(ctx, {
         type: 'line',
@@ -122,7 +122,7 @@ async function asistanceHistoryGraph() { // This function fetches assistance his
                 label: 'Asistencia por mes',
                 data: Object.values(asistHistoryDic),
                 fill: false,
-                borderColor: 'rgba(75, 192, 192, 1)', 
+                borderColor: 'rgba(75, 192, 192, 1)',
                 tension: 0.1
             }]
         },
@@ -138,9 +138,82 @@ async function asistanceHistoryGraph() { // This function fetches assistance his
     });
 
 }
+async function asistanceGraph() {
+    const data = await getData('https://apidemo.geoeducacion.com.ar/api/testing/asistencia/1');
+    const asistanceList = data.data;
+
+    let presentes = 0;
+    let ausentes = 0;
+
+    asistanceList.forEach(asistencia => {
+        presentes += asistencia.presentes;
+        ausentes += asistencia.ausentes;
+    });
+
+    const ctx = document.getElementById("asistance-graph").getContext("2d");
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Presentes', 'Ausentes'],
+            datasets: [{
+                label: 'Asistencia general',
+                data: [presentes, ausentes],
+                backgroundColor: ['#4CAF50', '#F44336'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Asistencia General'
+                }
+            }
+        }
+    });
+}
+
+async function gradesGraph() {
+    const data = await getData('https://apidemo.geoeducacion.com.ar/api/testing/calificaciones/1');
+    const gradesList = data.data;
+
+    let aprobados = 0;
+    let desaprobados = 0;
+
+    gradesList.forEach(calif => {
+        aprobados += calif.aprobados;
+        desaprobados += calif.desaprobados;
+    });
+
+    const ctx = document.getElementById("grades-graph").getContext("2d");
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Aprobados', 'Desaprobados'],
+            datasets: [{
+                label: 'Calificaciones generales',
+                data: [aprobados, desaprobados],
+                backgroundColor: ['#2196F3', '#FF9800'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Calificaciones Generales'
+                }
+            }
+        }
+    });
+}
 
 window.onload = () => {
     studentsGraph();
     communicateGraph();
     asistanceHistoryGraph();
+    asistanceGraph();
+    gradesGraph();
 }
