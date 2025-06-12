@@ -107,7 +107,7 @@ async function asistanceHistoryGraph() { // This function fetches assistance his
         if (!asistHistoryDic[asistencia.mes]) {
             asistHistoryDic[asistencia.mes] = asistencia.asistencia; //NO HAY NOVIEMBRE
         } else {
-            asistHistoryDic[asistencia.fecha] += asistencia.asistencia;
+            asistHistoryDic['Error en nombre'] += asistencia.asistencia;
         }
     } 
     );
