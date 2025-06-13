@@ -10,30 +10,30 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row d-flex align-items-sretch">
             <!-- Contiene los graficos del 1-4 -->
-            <div class="col-md-9">
+            <div class="col-md-9 d-flex flex-column">
                 <!-- Contiene los graficos 1-2 -->
-                <div class="row mb-3">
-                    <div class="col-sm-6">
-                        <canvas id="students-graph">
+                <div class="row mb-3 flex-grow-1">
+                    <div class="col-sm-6 d-flex">
+                        <canvas id="students-graph" style="height: 100%;">
                             <!-- Bar Mateo-->
                         </canvas>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 d-flex">
                         <canvas id="asistance-graph">
                             <!-- Torta Thiago-->
                         </canvas>
                     </div>
                 </div>
                 <!-- Contiene los graficos 3-4 -->
-                <div class="row mb-3">
-                    <div class="col-sm-6">
-                        <canvas id="history-graph">
+                <div class="row mb-3 flex-grow-1">
+                    <div class="col-sm-6 d-flex">
+                        <canvas id="history-graph" style="height: 100%;">
                             <!-- Line Mateo-->
                         </canvas>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 d-flex">
                         <canvas id="grades-graph">
                             <!-- Torta Thiago-->
                         </canvas>
@@ -41,8 +41,8 @@
                 </div>
             </div>
             <!-- COntiene el Grafico 5 -->
-            <div class="col-md-3">
-                <canvas id="communicate-graph" style="height: 100%;">
+            <div class="col-md-3 d-flex">
+                <canvas id="communicate-graph" style="height: 200%;">
                     <!-- Barra apilada Mateo-->
                 </canvas>
             </div>
