@@ -4,7 +4,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f9fa;
+    background-color: #424242dc;
 }
 .dashboard-container{
     width: 100%;
