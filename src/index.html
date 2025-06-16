@@ -8,43 +8,77 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div class="container-fluid">
-        <div class="row d-flex align-items-sretch">
+<body class="bg-light">
+    <div class="container py-4">
+        <div class="container">
+            <nav class="navbar navbar-dark bg-primary mb-4 ">
+                <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1" href="#">TP 3 Estadistica</span>
+            </div>
+        </nav>
+        
+        <div class="container text-center mb-4">
+            <h1 class="display-6">Analisis Estadistico de Estudiantes</h1>
+            <p class="text-muted">Visualizacion de datos</p>
+        </div>
+        
+        <div class="container-fluid">
+            <div class="row g-3">
             <!-- Contiene los graficos del 1-4 -->
-            <div class="col-md-9 d-flex flex-column">
-                <!-- Contiene los graficos 1-2 -->
-                <div class="row mb-3 flex-grow-1">
-                    <div class="col-sm-6 d-flex">
-                        <canvas id="students-graph" style="height: 100%;">
-                            <!-- Bar Mateo-->
-                        </canvas>
+            <div class="col-md-9">
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="card shadow-sm mb-3 h-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Cantidad de Estudianes</h6>
+                                <canvas id="students-graph" style="height: 100%;">
+                                    <!-- Bar Mateo-->
+                                </canvas>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6 d-flex">
-                        <canvas id="asistance-graph">
-                            <!-- Torta Thiago-->
-                        </canvas>
+                    <div class="col-sm-6" >
+                        <div class="card shadow-sm mb-3 h-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Asistencia</h6>
+                                <canvas id="asistance-graph">
+                                    <!-- Torta Thiago-->
+                                </canvas>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Contiene los graficos 3-4 -->
-                <div class="row mb-3 flex-grow-1">
-                    <div class="col-sm-6 d-flex">
-                        <canvas id="history-graph" style="height: 100%;">
-                            <!-- Line Mateo-->
-                        </canvas>
+                    <div class="col-sm-6">
+                        <div class="card shadow-sm mb-3 h-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Historial</h6>        
+                                <canvas id="history-graph" style="height: 100%;">
+                                    <!-- Line Mateo-->
+                                </canvas>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-sm-6 d-flex">
-                        <canvas id="grades-graph">
-                            <!-- Torta Thiago-->
-                        </canvas>
+                    <div class="col-sm-6">
+                        <div class="card shadow-sm mb-3 h-100">
+                            <div class="card-body">
+                                <h6 class="card-title">Notas</h6>
+                                <canvas id="grades-graph">
+                                    <!-- Torta Thiago-->
+                                </canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- COntiene el Grafico 5 -->
-            <div class="col-md-3 d-flex">
-                <canvas id="communicate-graph" style="height: 200%;">
-                    <!-- Barra apilada Mateo-->
-                </canvas>
+            <!-- Contiene el Grafico 5 -->
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h6 class="card-title">Comunicacion</h6>
+                        <canvas id="communicate-graph" style="height: 160%;">
+                            <!-- Barra apilada Mateo-->
+                        </canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
